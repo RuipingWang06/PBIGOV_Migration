@@ -1,0 +1,21 @@
+```sql
+CREATE OR REPLACE TRANSIENT TABLE <TABLE NAME> (
+    FRMW_EXTRACTED_ON TIMESTAMP_NTZ(9), ✏️
+    <COLUMN 1 NAME> <DATA TYPE>,
+    <COLUMN 2 NAME> <DATA TYPE>,
+    ...
+    <COLUMN N NAME> <DATA TYPE>
+);
+```
+Note for PBIGOV project. Add topic prefix to ID columns. If it is CAPACITIES table and you have ID column, rename it to CAPACITYID. ✏️
+
+Example,
+
+```sql
+CREATE OR REPLACE TRANSIENT TABLE PBIGOV_DATASETUPSTREAMDATASETS (
+    FRMW_EXTRACTED_ON TIMESTAMP_NTZ(9), ✏️
+    DATASETID CHAR(36),
+    TARGETDATASETID CHAR(36),
+    GROUPID CHAR(36)
+);
+```
