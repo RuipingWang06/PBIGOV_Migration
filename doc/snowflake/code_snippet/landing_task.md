@@ -1,0 +1,30 @@
+```sql
+CREATE OR REPLACE TASK TASK_<TABLE NAME>
+WAREHOUSE = <WAREHOUSE>
+After '<Parent Tasks or LANDING.TASK_START_PBIGOV>'✏️
+WHEN
+SYSTEM$STREAM_HAS_DATA('LANDING.STM_<TABLE NAME>')
+AS
+CALL LANDING.TABLE_LOAD_FULL_ADD('<TABLE NAME>','No');
+```
+Change WAREHOUSE parameter if needed: ✏️
+
+|Environment|Warehouse| 
+|--|--|
+|SF DEV|WH_DEV|
+|Repository/branch/SF STG/PRD|WH_TASKS|
+
+Example,
+```sql
+CREATE OR REPLACE TASK TASK_PBIGOV_DATASETUPSTREAMDATASETS
+WAREHOUSE = WH_TASKS
+AFTER LANDING.TASK_START_PBIGOV ✏️
+WHEN
+SYSTEM$STREAM_HAS_DATA('LANDING.STM_PBIGOV_DATASETUPSTREAMDATASETS')
+AS
+CALL LANDING.TABLE_LOAD_FULL_ADD('PBIGOV_DATASETUPSTREAMDATASETS','NO');
+```
+
+**Note. You put WH_DEV warehouse here when you create a task object in Snowflake, but you replace it with WH_TASKS when you publish code to your code branch.**
+
+Note 2. USING CRON 0 4 * * * UTC =  4 AM UTC
