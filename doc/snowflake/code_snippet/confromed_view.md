@@ -1,10 +1,10 @@
 ```sql
 CREATE OR REPLACE VIEW V_<VIEW NAME> (
-        <COLUMN 1 NAME>, --view columns list ✏️
+        <COLUMN 1 NAME>, --view columns list 
         <COLUMN 2 NAME>,
         ...
         <COLUMN N NAME>,
-        EXTRACTEDON, ✏️
+        EXTRACTEDON, 
         HASH_VALUE
 ) AS
 /*----------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ SELECT
     <COLUMN 2 NAME>,
     ...
     <COLUMN N NAME>,
-    EXTRACTEDON, ✏️
+    EXTRACTEDON, 
     HASH(<All Columns List except FRMW_EXTRACTED_ON>) AS HASH_VALUE ✏️
 FROM
     CONFORMED.<TABLE NAME>;
@@ -34,7 +34,7 @@ CREATE OR REPLACE VIEW V_PBIGOV_DIMDATASETUPSTREAMDATASETS(
 	DATASETID,
 	TARGETDATASETID,
 	GROUPID,
-        EXTRACTEDON, ✏️
+        EXTRACTEDON, 
 	HASH_VALUE
 ) AS
 /*----------------------------------------------------------------------------------------------
@@ -51,8 +51,9 @@ SELECT
     DATASETID,
     TARGETDATASETID,
     GROUPID,
-    FRMW_EXTRACTED_ON AS EXTRACTEDON, ✏️
+    FRMW_EXTRACTED_ON AS EXTRACTEDON, 
     HASH(DATASETID,TARGETDATASETID,GROUPID) AS HASH_VALUE
 FROM 
     CONFORMED.PBIGOV_DATASETUPSTREAMDATASETS;
+
 ```
