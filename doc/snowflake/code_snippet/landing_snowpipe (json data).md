@@ -7,7 +7,7 @@ CREATE OR REPLACE PIPE PIPE_<TABLE NAME>
         LANDING.<TABLE NAME>
         (
             FRMW_EXTRACTED_ON,
-            <COLUMN 1 NAME>, -- section to list fields of target LANDING table ✏️
+            <COLUMN 1 NAME>, -- section to list fields of target LANDING table 
             <COLUMN 2 NAME>,
             ...
             <COLUMN N NAME>
@@ -15,7 +15,7 @@ CREATE OR REPLACE PIPE PIPE_<TABLE NAME>
     FROM (
         SELECT
             METADATA$FILE_LAST_MODIFIED AS FRMW_EXTRACTED_ON,
-            $1:<COLUMN 1 NAME>::STRING, -- section to list fields of source file ✏️
+            $1:<COLUMN 1 NAME>::STRING, -- section to list fields of source file 
             $1:<COLUMN 2 NAME>::STRING,
             ...
             $1:<COLUMN N NAME>::STRING
@@ -26,7 +26,7 @@ CREATE OR REPLACE PIPE PIPE_<TABLE NAME>
 Assuming data source is JSON flat file in S3. 
 Don't do any transformations in pipe, do them in CONFORMED view instead. 
 
-SNS TOPIC you use: ✏️
+SNS TOPIC you use: 
 
 |Environment|SNS Topic| 
 |--|--|
@@ -62,11 +62,11 @@ CREATE OR REPLACE PIPE PIPE_PBIGOV_DATASETUPSTREAMDATASETS
 
 For debugging you can run query to see all available data:
 ```sql
-        SELECT TOP 1 ✏️
+        SELECT TOP 1 
             $1::STRING
         FROM @STAGE_S3_EIP/data/<ROOT FOLDER NAME>/<FOLDER NAME>/ (FILE_FORMAT => 'LANDING.JSON_S3')
 ```
-**Note. It could fail if you have a lot of data.** ✏️
+**Note. It could fail if you have a lot of data.** 
 
 To activate Snowpipe use command:
 ```sql
