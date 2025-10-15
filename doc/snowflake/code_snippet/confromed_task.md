@@ -7,7 +7,7 @@ SYSTEM$STREAM_HAS_DATA('CONFORMED.STM_<TABLE NAME>')
 AS
 CALL <SCHEMA NAME>.<STORED PROCEDURE NAME>('<TABLE NAME>');
 ```
-Change WAREHOUSE parameter if needed: ✏️
+Change WAREHOUSE parameter if needed: 
 
 |Environment|Warehouse| 
 |--|--|
@@ -25,5 +25,6 @@ AS
 CALL CONFORMED.PBIGOV_DIMDATASETUPSTREAMDATASETS_ADD('DIMDATASETUPSTREAMDATASETS');
 ```
 **Note. You put WH_DEV warehouse here when you create a task object in Snowflake, but you replace it with WH_TASKS when you publish code to your code branch.**
+
 
 Note 2. USING CRON 0 5 * * * UTC =  5 AM UTC
